@@ -5,7 +5,7 @@
 This table stores user information such as name, email, role, and phone number.
 
 ```sql
-CREATE TABLE users (
+CREATE TABLE Users (
   user_id SERIAL PRIMARY KEY,
   full_name VARCHAR(100) NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE users (
 This table stores information about football matches including fixture details, category, price, and status.
 
 ```sql
-CREATE TABLE matches (
+CREATE TABLE Matches (
   match_id SERIAL PRIMARY KEY,
   fixture VARCHAR(100) NOT NULL,
   tournament_category VARCHAR(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE matches (
 This table stores booking information linking users with matches, including seat details and payment status.
 
 ```sql
-CREATE TABLE bookings (
+CREATE TABLE Bookings (
     booking_id INT PRIMARY KEY,
     user_id INT REFERENCES users(user_id),
     match_id INT REFERENCES matches(match_id),
