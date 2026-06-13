@@ -12,6 +12,8 @@ CREATE TABLE users (
   role VARCHAR(30) NOT NULL,
   phone_number VARCHAR(20)
 );
+```
+
 
 ## 2️⃣ Matches Table
 
@@ -25,6 +27,7 @@ CREATE TABLE matches (
   base_ticket_price DECIMAL(10,2) NOT NULL,
   match_status VARCHAR(20) NOT NULL
 );
+```
 
 
 
