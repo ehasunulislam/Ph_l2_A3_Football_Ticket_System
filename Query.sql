@@ -39,7 +39,8 @@ INSERT INTO Users (user_id, full_name, email, role, phone_number) VALUES
 (1, 'Tanvir Rahman', 'tanvir@mail.com', 'Football Fan', '+8801711111111'),
 (2, 'Asif Haque', 'asif@mail.com', 'Football Fan', '+8801722222222'),
 (3, 'Sajjad Rahman', 'sajjad@mail.com', 'Ticket Manager', '+8801733333333'),
-(4, 'Jannat Ara', 'jannat@mail.com', 'Football Fan', NULL);
+(4, 'Tanvir Haque', 'tanvir2@mail.com', 'Football Fan', '+8801711111122'),
+(5, 'Jannat Ara', 'jannat@mail.com', 'Football Fan', NULL);
 
 -- MATCHES DATA
 INSERT INTO Matches (match_id, fixture, tournament_category, base_ticket_price, match_status) VALUES
@@ -63,4 +64,8 @@ INSERT INTO Bookings (booking_id, user_id, match_id, seat_number, payment_status
 -- =========================
 
 -- Query 1: Retrieve all upcoming football matches belonging to the 'Champions League' where the match status is 'Available'.
-SELECT * FROM matches WHERE match_status = 'Available' AND tournament_category = 'Champions League';
+SELECT match_id, fixture, base_ticket_price FROM matches WHERE match_status = 'Available' AND tournament_category = 'Champions League';
+
+-- Query 2: Search for all users whose full names start with 'Tanvir' or contain the phrase 'Haque' (case-insensitive).
+SELECT user_id, full_name, email FROM users WHERE full_name ILIKE 'tanvir%' OR full_name ILIKE '%haque%';
+
