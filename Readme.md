@@ -13,3 +13,18 @@ CREATE TABLE users (
   phone_number VARCHAR(20)
 );
 
+## 2️⃣ Matches Table
+
+This table stores information about football matches including fixture details, category, price, and status.
+
+```sql
+CREATE TABLE matches (
+  match_id SERIAL PRIMARY KEY,
+  fixture VARCHAR(100) NOT NULL,
+  tournament_category VARCHAR(50) NOT NULL,
+  base_ticket_price DECIMAL(10,2) NOT NULL,
+  match_status VARCHAR(20) NOT NULL
+);
+
+
+
