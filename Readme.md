@@ -29,5 +29,20 @@ CREATE TABLE matches (
 );
 ```
 
+## 3️⃣ Bookings Table
+
+This table stores booking information linking users with matches, including seat details and payment status.
+
+```sql
+CREATE TABLE bookings (
+    booking_id INT PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    match_id INT REFERENCES matches(match_id),
+    seat_number VARCHAR(20),
+    payment_status VARCHAR(20),
+    total_cost DECIMAL(10,2) NOT NULL
+);
+```
+
 
 
