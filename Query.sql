@@ -39,8 +39,7 @@ INSERT INTO Users (user_id, full_name, email, role, phone_number) VALUES
 (1, 'Tanvir Rahman', 'tanvir@mail.com', 'Football Fan', '+8801711111111'),
 (2, 'Asif Haque', 'asif@mail.com', 'Football Fan', '+8801722222222'),
 (3, 'Sajjad Rahman', 'sajjad@mail.com', 'Ticket Manager', '+8801733333333'),
-(4, 'Tanvir Haque', 'tanvir2@mail.com', 'Football Fan', '+8801711111122'),
-(5, 'Jannat Ara', 'jannat@mail.com', 'Football Fan', NULL);
+(4, 'Jannat Ara', 'jannat@mail.com', 'Football Fan', NULL),
 
 -- MATCHES DATA
 INSERT INTO Matches (match_id, fixture, tournament_category, base_ticket_price, match_status) VALUES
@@ -62,7 +61,6 @@ INSERT INTO Bookings (booking_id, user_id, match_id, seat_number, payment_status
 -- =========================
 -- SOLVE THE QUESTION
 -- =========================
-
 -- Query 1: Retrieve all upcoming football matches belonging to the 'Champions League' where the match status is 'Available'.
 SELECT match_id, fixture, base_ticket_price FROM matches WHERE match_status = 'Available' AND tournament_category = 'Champions League';
 
@@ -70,10 +68,10 @@ SELECT match_id, fixture, base_ticket_price FROM matches WHERE match_status = 'A
 SELECT user_id, full_name, email FROM users WHERE full_name ILIKE 'tanvir%' OR full_name ILIKE '%haque%';
 
 -- Query 3: Retrieve all booking records where the payment status is missing (NULL), replacing the empty result with 'Action Required'.
-SELECT booking_id, user_id, match_id, COALESCE(payment_status, 'Action Required') AS payment_status FROM bookings WHERE payment_status IS NULL;
+SELECT booking_id, user_id, match_id, COALESCE(payment_status, 'Action Required') AS systematic_status FROM bookings WHERE payment_status IS NULL;
 
 -- Query 4: Retrieve match booking details along with the User's full name and the scheduled Match fixture teams.
-SELECT booking_id, full_name, fixture
+SELECT booking_id, full_name, fixture, total_cost
 FROM bookings
 INNER JOIN users ON bookings.user_id = users.user_id
 INNER JOIN matches ON bookings.match_id = matches.match_id;
