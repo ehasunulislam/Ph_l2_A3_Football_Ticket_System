@@ -156,4 +156,4 @@ Through this assignment, I practiced:
 ## 👨‍💻 Author
 
 **Ehasun**
-MERN Stack Developer & Frontend Developer
+Full Stack Developer & Engineer
